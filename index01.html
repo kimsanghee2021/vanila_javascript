@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Something</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        #title3{color:palegreen;}
+        .clicked{color:peru;}
+        .btn{cursor: pointer;}
+    </style>
+</head>
+<body>
+    <h1 id="title1">반가워 이제 바닐라 자바스크립트로 작업을 해볼꺼야!</h1>
+    <h2 id="title2"> 나를 클릭하면 글씨 색상은 뭐로 변할까?</h2>
+    <h3 id="title3" class="btn">이벤트 발생하는 색상 변경 css으로 해볼까?</h3>
+    <!-- <script src="javascript.js"></script> -->
+    <script>
+       
+        const titleOne = document.querySelector('#title1');
+        const titleTwo = document.querySelector('#title2');
+        const titleTree = document.querySelector('#title3');
+
+        //자바스크립트로 타이틀 텍스트 변경해보기 
+        titleOne.innerHTML = '자바스크립트로 타이틀 변경해보기';
+        document.write(titleOne);
+
+        //도큐멘트 사이즈가 변경 할 시 콘솔로그에 변경 문구 뜨게 하는 방법
+        function handelSize(){
+            console.log('도큐멘트 창의 사이즈가 움직이고 있습니다.');
+        };
+        window.addEventListener('resize',handelSize);
+
+        //h1 제목을 클릭시 제목 색상 변경 방법
+        function handleClick(){
+            titleTwo.style.color = 'blue';
+        };
+        titleTwo.addEventListener('click',handleClick);
+        
+        //h3제목 클릭시 이벤트 발생하는 방법 - 기존 클레스 뒤에 자바스크립트로 클래스명 하나 더 붙이는 방법 그리고 토글로 이용해서 지웟다가 나왔다가 하는 방법
+        const clickClass = 'clicked';
+
+        function handleCheck(){
+            titleTree.classList.toggle(clickClass);
+        };
+        function init(){
+            titleTree.addEventListener('click',handleCheck);
+        };
+        init();
+
+        //만약 여기에 class를 추가 한다면? 어떻게 넣어야할까? 
+    </script>
+
+    
+</body>
+</html>

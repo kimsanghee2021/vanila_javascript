@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트</title>
+</head>
+<body>
+    <script>
+    //변수란? - 변하는 수 
+    //항상 모든 변수를 다른 라인에 적어야한다. 라인을 익스프레션 
+    /*
+        변수를 만들고 변수를 초기화 한다음 사용하면됨 
+        let은 변수를 초기화 하거나 생성할 때 let을 사용하지만 이미생성된것을 사용할땐 필요없다.
+        const - 상수, 이것은 변하지 않는다. 변수를 변하게 하지 않게 하기 위해선 const를 사용하고 그것이 아니면 let을 사용한다. 
+    */
+    let a = 200;
+    let b = a-5;
+    a = 100;//여기서 let을 선언하지 않았음 
+    document.write(a,b,'<br><br>');
+
+    /*
+    변수를 선언할떄는 기본적으로 const를 사용하도록!
+    너가 필요할때까지 let을 쓰지말것 
+    첫사용은 const로, 진짜 필요할때만 let을 사용 할것!
+    */
+
+    //string - 텍스트
+    const what = 'sanghee';
+    document.write('*****string*******<br>');
+    document.write(what,'<br>');
+    //boolean - true, false (이것은 텍스트가 아니고 이진법 1,0이다.)
+    const wat = true;
+    //number
+    //float - 소숫점
+    const wlt = 55.1;
+    /*
+        Array과 object는 데이터를 정렬하는 방법이다.
+        array는 데이터를 저장하는 곳인데 리스트 같이 저장해준다. 
+        const 다음에 들어가는 변수의 이름을 항상 소문자로 시작하고 띄어쓰기가 필요하다면 다음 언어에 대문자로 작성해야한다. 이것을 카멜 케이스(camel case)라고 부른다.
+        Array를 선언할 때 []대괄호를 써주면 된다.
+        object를 써줄때는 {}중괄호를 써주면 된다. 오브젝트는 실제 객체를 만든다. 라벨을 내가 저장하고 싶은 데이터에 줄 수 있다는 말이다. 
+        만약 DB에서 가져온 리스트 데이터라면 Array를 선택하고, 만약 데이터를 합쳐서 만들어야한다면 Object를 사용해야한다. 
+        또한 Array를 Object안에 넣어서 작성할 수 있다.
+        중간 사이사이에 꼼마 빠뜨리면 안되고 string에 ""나 ''를 빠트리면 절대 안된다. 
+        콘솔로그에서 에러를 잘 읽어야한다. 
+        자바스크립트 데이터 타입에 대한 설명이였다. 
+    */
+   //Array 작성법
+   {
+   const dayOfWeek = ['Mon','Tue','wed','Tur','Fri',true];
+   document.write('**************Array 작성법***************<br>');
+   document.write(dayOfWeek[4],'<br><br>');
+   }
+   //object 사용법 : object에는 각 value에 이름을 줄 수 있다.
+   {
+       const sangheeInfo = {
+           name:'sanghee',
+           age:26,
+           gander:'female',
+           sobutiful:true,
+           favMovies:['신과함께','하늘을 날다','246'],
+           favFood:['삼겹살','치즈버거']
+        };
+        document.write('********Object안에 배열 넣는 방식***********<br>');
+        document.write(sangheeInfo.favMovies,'<br><br>');
+   }
+
+
+
+
+   //함수 - console은 엄청 큰 오브젝트이다. 콘솔로그는 내장함수라고 한다. 
+   /*함수는 어떤것의 기능 이다. 어떤걸 수행햐련느것을 내가 원하는 만큼 작성할 수 있다. 내가 원하는 만큼 쓸 수 있는 코드다.*/
+   {
+   document.write('**************내장함수 작성법***************<br>');
+   document.write('hello <br>');
+
+        function sanghee(hotdog,niniz){                                //괄호안에 들어가는 내용은 파라미터 즉 매개함수라고 한다.
+            document.write('안녕?'+ hotdog + '나는 ' + niniz + ' 좋아해!','<br><br>');
+        }
+        sanghee('반가워!','조르디');                                  //괄호 안에있는 내용을 인자라고 부른다.
+   }
+
+   //콘솔로그 대신 섹쉬한 스트링을 써보자! 스트링은 ''아님 ""로 닫아줘야한다. 글씨를 입력해줄려면 `(백틱을 사용해야한다.)
+   //백틱으로 함수 작성해보자 
+   {
+        document.write(`**************백틱으로 스트링 작성법***************<br>`);
+        function sayHello(name, age){
+           document.write(`안녕 나는 ${name}라고 해! 나이는 ${age}이야 만나서 반가워!<br><br>`);
+       }
+       sayHello('김상희',26);
+    }
+    //
+    {
+        document.write(`**************함수를 const 값으로 넣어서 작성해 보자 -  undefined***************<br>`);
+        function sayBye(momo, happy,meet){
+            document.write(`${momo} 만나서 반가웠고 ${happy}했어 다음에 ${meet}`);
+        };
+        const momo = sayBye('모모야','행복','또만나!');
+        document.write(momo); //undefined로 나온다 undefined로 안나오게 하려면 
+
+    }
+
+    {
+        document.write(`<br><br>**************함수를 const 값으로 넣어서 작성해 보자 -리턴문 작성 ***************<br>`);
+        function sayBye(momo, happy,meet){
+            return `${momo} 만나서 반가웠고 ${happy}했어 다음에 ${meet}`
+        };
+        const momo = sayBye('모모야','행복','또만나!');
+        document.write(momo,'<br><br>');  
+
+    }
+
+    {
+        //
+        document.write(`<br><br>**************오브젝트 안에  더하기 뺴기 사용법 ***************<br>`);
+        const calculator = {
+            plus : function(a,b){
+                return a+b;
+            },
+            minus : function(d,f){
+                return d-f;
+            } 
+        };
+        const minus = calculator.minus(10,8);
+        const plus = calculator.plus(10,10);
+        document.write(minus,'<br>',plus);
+
+
+    }
+
+    {
+        document.write('<br>오브젝트 작업 2<br>');
+        const niceMeetYou = {
+            plus : function(a,b){
+                return a + b;
+            },
+            minus : function(c,d){
+                return c - d;
+            },
+            muti : function(e,f){
+                return e **f;
+            },
+            divi : function(g,h){
+                return g/h;
+            }
+        };
+        const plus = niceMeetYou.plus(10,9);
+        const minus = niceMeetYou.minus(20,7);
+        const muti = niceMeetYou.muti(5,5);
+        const divi = niceMeetYou.divi(10/5);
+        document.write(plus,'<br>',minus,'<br>',muti,'<br>',divi,'<br>');
+    }
+    document.write('뭐야 왜 안나와');
+
+
+
+    
+    </script>
+</body>
+</html>
